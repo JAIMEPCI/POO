@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto.Controlador">
+   <tabs>
+      <Tab fx:id="tabAgregarE" closable="false" text="Agregar estudiante">
+         <content>
+            <AnchorPane prefHeight="498.0" prefWidth="776.0">
+               <children>
+                  <Spinner fx:id="idEstudianteAgregar" layoutX="393.0" layoutY="40.0" prefHeight="41.0" prefWidth="160.0" />
+                  <TextField fx:id="nombreEstudianteAgregar" layoutX="181.0" layoutY="110.0" onKeyTyped="#butonDisabled" prefHeight="49.0" prefWidth="378.0" promptText="Escriba el nombre del estudiante">
+                     <font>
+                        <Font size="22.0" />
+                     </font></TextField>
+               
+                                  <Label fx:id="labelAgregarE" alignment="CENTER" layoutX="67.0" layoutY="188.0" opacity="0.8" prefHeight="81.0" prefWidth="637.0" textAlignment="CENTER">
+                     <font>
+                        <Font size="22.0" />
+                     </font></Label>
+                  <Button fx:id="botonAgregarE" disable="true" layoutX="246.0" layoutY="290.0" mnemonicParsing="false" onAction="#agregarEstudiante" prefHeight="79.0" prefWidth="248.0" text="Agregar estudiante">
+                     <font>
+                        <Font size="22.0" />
+                     </font></Button>
+                  <Label layoutX="190.0" layoutY="45.0" text="ID del estudiante:">
+                     <font>
+                        <Font size="22.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="tabAgregarX" closable="false" disable="true" text="Agregar examen oral o escrito a estudiante">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="nombreExam" layoutX="65.0" layoutY="131.0" prefHeight="46.0" prefWidth="434.0" promptText="Escriba el título del examen">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="548.0" layoutY="139.0" text="Fecha del examen:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="fechaExam" editable="false" layoutX="754.0" layoutY="136.0" prefHeight="39.0" prefWidth="211.0" showWeekNumbers="true" />
+                  <Label layoutX="79.0" layoutY="228.0" text="Tipo de examen:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="botonAgregarExam" layoutX="179.0" layoutY="379.0" mnemonicParsing="false" onAction="#agregarExam" onKeyPressed="#butonExamDisabled" prefHeight="80.0" prefWidth="199.0" text="Agregar examen">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="79.0" layoutY="52.0" text="ID del estudiante:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="idEstudianteExam" layoutX="273.0" layoutY="49.0" prefHeight="39.0" prefWidth="171.0" />
+                  <Label fx:id="labelAgregarExam" layoutX="519.0" layoutY="338.0" prefHeight="102.0" prefWidth="652.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCalTim" layoutX="548.0" layoutY="227.0" prefHeight="37.0" prefWidth="183.0" text="Tiempo empleado:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="calificacionExam" editable="true" layoutX="754.0" layoutY="227.0" prefHeight="44.0" prefWidth="176.0" />
+                  <RadioButton fx:id="radioEscrito" layoutX="258.0" layoutY="248.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="177.0" selected="true" text="Examen Escrito">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="exam" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radioOral" layoutX="258.0" layoutY="209.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="173.0" text="Examen Oral" toggleGroup="$exam">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="tabBuscarE" closable="false" disable="true" text="Buscar estudiante">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="193.0" layoutY="52.0" text="ID del estudiante:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="idEstudianteBuscar" layoutX="391.0" layoutY="48.0" prefHeight="40.0" prefWidth="168.0" />
+                  <Button fx:id="botonBuscarE" layoutX="299.0" layoutY="132.0" mnemonicParsing="false" onAction="#buscarEstudiante" prefHeight="69.0" prefWidth="162.0" text="Buscar">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="labelBuscarE" alignment="TOP_CENTER" layoutX="158.0" layoutY="249.0" prefHeight="70.0" prefWidth="443.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="tabVerE" closable="false" disable="true" onSelectionChanged="#verEstudiantes" text="Ver todos los estudiantes">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="482.0" prefWidth="1184.0">
+               <children>
+                  <ScrollPane layoutX="28.0" layoutY="42.0" prefHeight="432.0" prefWidth="733.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="411.0" prefWidth="562.0">
+                           <children>
+                              <HBox prefHeight="432.0" prefWidth="715.0">
+                                 <children>
+                                    <Label fx:id="labelVerN" alignment="TOP_CENTER" prefHeight="438.0" prefWidth="370.0" text="NOMBRE" textAlignment="CENTER" />
+                                    <Label fx:id="labelVerID" alignment="TOP_CENTER" prefHeight="454.0" prefWidth="369.0" text="ID" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <Label alignment="CENTER" layoutX="140.0" layoutY="14.0" prefHeight="32.0" prefWidth="137.0" text="NOMBRE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="497.0" layoutY="14.0" prefHeight="32.0" prefWidth="137.0" text="ID">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="tabEstudianteAprob" closable="false" disable="true" onSelectionChanged="#verEstudiantesAprobados" text="Estudiantes aprobados">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="482.0" prefWidth="1184.0">
+               <children>
+                  <ScrollPane layoutX="28.0" layoutY="42.0" prefHeight="432.0" prefWidth="733.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="411.0" prefWidth="562.0">
+                           <children>
+                              <HBox prefHeight="432.0" prefWidth="715.0">
+                                 <children>
+                                    <Label fx:id="labelAprN" alignment="TOP_CENTER" prefHeight="438.0" prefWidth="370.0" text="NOMBRE" textAlignment="CENTER" />
+                                    <Label fx:id="labelAprID" alignment="TOP_CENTER" prefHeight="454.0" prefWidth="369.0" text="ID" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <Label alignment="CENTER" layoutX="140.0" layoutY="14.0" prefHeight="32.0" prefWidth="137.0" text="NOMBRE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="497.0" layoutY="14.0" prefHeight="32.0" prefWidth="137.0" text="ID">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="tabEliminarE" closable="false" disable="true" text="Eliminar estudiante">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="199.0" layoutY="56.0" text="ID del estudiante:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="idEstudianteEliminar" layoutX="408.0" layoutY="50.0" prefHeight="43.0" prefWidth="173.0" />
+                  <Button fx:id="botonEliminarE" layoutX="273.0" layoutY="125.0" mnemonicParsing="false" onAction="#eliminarEstudiante" prefHeight="67.0" prefWidth="236.0" text="Eliminar estudiante">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="labelEliminarE" alignment="CENTER" layoutX="154.0" layoutY="211.0" prefHeight="137.0" prefWidth="508.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
